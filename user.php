@@ -51,7 +51,7 @@
     </div>
   </section>
 
-  <<?php
+  <?php
 
   try {
       $conn = new PDO("sqlsrv:server = tcp:cloudymousappserv.database.windows.net,1433; Database = dicodingdb", "cloudymous", "imran*01");
