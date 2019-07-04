@@ -84,8 +84,8 @@
   				$stmt = $conn->query($sql_select);
   				$users = $stmt->fetchAll();
   				if(count($users) > 0) {
-  					echo "<h2>Message Received:</h2>";
-  					echo "<table>";
+  					echo "<h2>User Registered:</h2>";
+  					echo "<table class="table">";
   					echo "<tr><th>No</th>";
   					echo "<th>Email</th></tr>";
   					foreach ($users as $user) {
