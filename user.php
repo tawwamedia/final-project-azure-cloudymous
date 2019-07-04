@@ -53,21 +53,22 @@
 
   <?php
 
-  try {
-      $conn = new PDO("sqlsrv:server = tcp:cloudymousappserv.database.windows.net,1433; Database = dicodingdb", "cloudymous", "imran*01");
-      $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-  }
-  catch (PDOException $e) {
-      print("Error connecting to SQL Server.");
-      die(print_r($e));
-  }
+  // PHP Data Objects(PDO) Sample Code:
+      try {
+          $conn = new PDO("sqlsrv:server = tcp:cloudymousappserv.database.windows.net,1433; Database = dicodingdb", "cloudymous", "imran*01");
+          $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+      }
+      catch (PDOException $e) {
+          print("Error connecting to SQL Server.");
+          die(print_r($e));
+      }
 
     if (isset($_POST['adduser'])) {
   		try {
   			$email = $_POST['email'];
   			$password = $_POST['password'];
 
-  			$sql_insert = "INSERT INTO user (user_email, user_password)
+  			$sql_insert = "INSERT INTO userlogin (user_email, user_password)
   										VALUES (?,?)";
   			$stmt = $conn->prepare($sql_insert);
   			  $stmt->bindValue(1, $email);
@@ -79,7 +80,7 @@
   		echo "<h3>Your Message Send</h3>";
   	} elseif (isset($_POST['showusers'])) {
   			try {
-  				$sql_select = "SELECT * FROM user";
+  				$sql_select = "SELECT * FROM userlogin";
   				$stmt = $conn->query($sql_select);
   				$users = $stmt->fetchAll();
   				if(count($users) > 0) {
