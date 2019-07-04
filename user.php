@@ -53,7 +53,7 @@
 
   <<?php
 
-    include __DIR__ . '/database/connection.php';
+    include 'connection.php';
 
     if (isset($_POST['adduser'])) {
   		try {
