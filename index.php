@@ -22,6 +22,7 @@
   </section>
 
   <section class="section">
+    <div class="columns is-centered">
     <div class="container">
     <div class="field">
       <p class="control has-icons-left has-icons-right">
@@ -49,6 +50,7 @@
         </button>
       </p>
     </div>
+  </div>
   </div>
   </section>
   </body>
