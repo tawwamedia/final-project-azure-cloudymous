@@ -31,9 +31,9 @@
               </span>
               </p>
           </div>
-          <div class="field">
+          <div class="field is-grouped is-grouped-centered">
             <p class="control">
-              <button class="button is-success">
+              <button class="button is-primary">
                 Login
               </button>
             </p>
