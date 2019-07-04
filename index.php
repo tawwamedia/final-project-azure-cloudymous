@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Hello Bulma!</title>
+    <title>Cloudymous Cognitive</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
     <link rel="stylesheet" href="css/bulma.min.css">
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
@@ -44,5 +44,20 @@
         </div>
       </div>
     </section>
+
+    <?php
+       // PHP Data Objects(PDO) Sample Code:
+       try {
+           $conn = new PDO("sqlsrv:server = tcp:cloudymousappserv.database.windows.net,1433; Database = dicodingdb", "cloudymous", "imran*01");
+           $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+           echo "<section class="section">";
+           echo "<h1 class="title">Koneksi Sukses</h1>";
+           echo "</section>";
+       }
+       catch (PDOException $e) {
+           print("Error connecting to SQL Server.");
+           die(print_r($e));
+       }
+    ?>
   </body>
 </html>
