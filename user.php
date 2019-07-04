@@ -34,10 +34,15 @@
           </span>
         </p>
       </div>
-      <div class="field">
+      <div class="field is-grouped is-grouped-centered">
         <p class="control">
           <button class="button is-success">
-            Login
+            Add User
+          </button>
+        </p>
+        <p class="control">
+          <button class="button is-success">
+            Show Users
           </button>
         </p>
       </div>
