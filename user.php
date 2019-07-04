@@ -15,9 +15,10 @@
           echo "User Account";
         ?>
       </h1>
+    <form method="post" action="user.php" enctype="multipart/form-data">
       <div class="field">
         <p class="control has-icons-left has-icons-right">
-          <input class="input" type="email" placeholder="Email">
+          <input class="input" type="email" name="email" id="email" placeholder="Email">
           <span class="icon is-small is-left">
             <i class="fas fa-envelope"></i>
           </span>
@@ -28,7 +29,7 @@
       </div>
       <div class="field">
         <p class="control has-icons-left">
-          <input class="input" type="password" placeholder="Password">
+          <input class="input" type="password" name="password" id="password" placeholder="Password">
           <span class="icon is-small is-left">
             <i class="fas fa-lock"></i>
           </span>
@@ -36,17 +37,62 @@
       </div>
       <div class="field is-grouped is-grouped-centered">
         <p class="control">
-          <button class="button is-success">
+          <button class="button is-success" type="submit" name="adduser">
             Add User
           </button>
         </p>
         <p class="control">
-          <button class="button is-success">
+          <button class="button is-success" type="submit" name="showusers">
             Show Users
           </button>
         </p>
       </div>
+    </form>
     </div>
   </section>
+
+  <<?php
+
+    include __DIR__ . '/database/connection.php';
+
+    if (isset($_POST['adduser'])) {
+  		try {
+  			$email = $_POST['email'];
+  			$password = $_POST['password'];
+
+  			$sql_insert = "INSERT INTO user (user_email, user_password)
+  										VALUES (?,?)";
+  			$stmt = $conn->prepare($sql_insert);
+  			  $stmt->bindValue(1, $email);
+  				$stmt->bindValue(2, $password);
+  				$stmt->execute();
+  		} catch(Exception $e) {
+  				echo "Failed: " . $e;
+  		}
+  		echo "<h3>Your Message Send</h3>";
+  	} elseif (isset($_POST['showusers'])) {
+  			try {
+  				$sql_select = "SELECT * FROM user";
+  				$stmt = $conn->query($sql_select);
+  				$users = $stmt->fetchAll();
+  				if(count($users) > 0) {
+  					echo "<h2>Message Received:</h2>";
+  					echo "<table>";
+  					echo "<tr><th>No</th>";
+  					echo "<th>Email</th></tr>";
+  					foreach ($users as $user) {
+  						echo "<tr><td>".$user['user_id']."</td>";
+  						echo "<td>".$user['user_email']."</td></tr>";
+  					}
+  					echo "</table>";
+  				} else {
+  						echo "<h3>No Users!.</h3>";
+  				}
+  			} catch (\Exception $e) {
+  				echo "Failed: " . $e;
+  			}
+
+  	}
+  ?>
   </body>
 </html>
