@@ -14,7 +14,7 @@
         Hello World
       </h1>
       <p class="subtitle">
-        <<?php
+        <?php
           echo 'My first website with <strong>Bulma</strong> and PHP!';
          ?>
       </p>
