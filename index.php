@@ -22,6 +22,7 @@
   </section>
 
   <section>
+    <div class="container">
     <div class="field">
       <p class="control has-icons-left has-icons-right">
         <input class="input" type="email" placeholder="Email">
@@ -48,7 +49,7 @@
         </button>
       </p>
     </div>
-
+  </div>
   </section>
   </body>
 </html>
