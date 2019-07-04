@@ -8,52 +8,39 @@
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
   </head>
   <body>
-  <section class="section">
-    <div class="container">
-      <h1 class="title">
-        Hello World
-      </h1>
-      <p class="subtitle">
-        <?php
-          echo 'My first website with <strong>Bulma</strong> and PHP!';
-         ?>
-      </p>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="columns is-centered">
-      <div class="column is-half">
-        <div class="container">
+    <section class="section">
+      <div class="columns is-centered">
+        <div class="column is-half">
+          <div class="container">
+            <div class="field">
+              <p class="control has-icons-left has-icons-right">
+                <input class="input" type="email" placeholder="Email">
+                <span class="icon is-small is-left">
+                  <i class="fas fa-envelope"></i>
+                </span>
+                <span class="icon is-small is-right">
+                  <i class="fas fa-check"></i>
+                </span>
+                </p>
+            </div>
           <div class="field">
-            <p class="control has-icons-left has-icons-right">
-              <input class="input" type="email" placeholder="Email">
+            <p class="control has-icons-left">
+              <input class="input" type="password" placeholder="Password">
               <span class="icon is-small is-left">
-                <i class="fas fa-envelope"></i>
-              </span>
-              <span class="icon is-small is-right">
-                <i class="fas fa-check"></i>
+                <i class="fas fa-lock"></i>
               </span>
               </p>
           </div>
-        <div class="field">
-          <p class="control has-icons-left">
-            <input class="input" type="password" placeholder="Password">
-            <span class="icon is-small is-left">
-              <i class="fas fa-lock"></i>
-            </span>
+          <div class="field">
+            <p class="control">
+              <button class="button is-success">
+                Login
+              </button>
             </p>
-        </div>
-        <div class="field">
-          <p class="control">
-            <button class="button is-success">
-              Login
-            </button>
-          </p>
-        </div>
+          </div>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
   </body>
 </html>
