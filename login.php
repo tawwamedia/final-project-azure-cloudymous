@@ -11,7 +11,7 @@
   </head>
   <body>
     <section class="section login-container">
-      <div class="columns is-centered">
+      <div class="columns is-desktop is-vcentered">
         <div class="column is-half">
           <div class="container">
             <h1 class="title">Please Login</h1>
