@@ -3,3 +3,8 @@
   width: 50%;
   padding: 10px;
 }
+.login-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

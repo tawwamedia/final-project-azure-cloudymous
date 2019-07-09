@@ -10,8 +10,8 @@
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
   </head>
   <body>
-    <section class="section">
-      <div class="columns is-desktop is-vcentered">
+    <section class="section login-flex">
+      <div class="columns is-centered">
         <div class="column is-half">
           <div class="container">
             <h1 class="title">Please Login</h1>
