@@ -10,7 +10,7 @@
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
   </head>
   <body>
-    <section class="section login-container">
+    <section class="section">
       <div class="columns is-desktop is-vcentered">
         <div class="column is-half">
           <div class="container">
