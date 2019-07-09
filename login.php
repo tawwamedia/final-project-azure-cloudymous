@@ -14,7 +14,7 @@
       <div class="columns is-centered">
         <div class="column is-half">
           <div class="container">
-            <h1 class="title is-centered">Please Login</h1>
+            <h1 class="title align-center">Please Login</h1>
             <div class="field">
               <p class="control has-icons-left has-icons-right">
                 <input class="input" type="email" placeholder="Email">

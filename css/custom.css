@@ -1,13 +1,3 @@
-.login-container {
-  margin: auto;
-  width: 50%;
-  padding: 10px;
-}
-.login-flex {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 .login-absolute{
   width: 800px;
   height: 100px;
@@ -17,4 +7,7 @@
   top: 30%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+.align-center{
+  text-align: center;
 }
