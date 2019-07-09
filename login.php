@@ -6,10 +6,11 @@
     <title>Cloudymous Cognitive</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
     <link rel="stylesheet" href="css/bulma.min.css">
+    <link rel="stylesheet" href="css/custom.css">
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
   </head>
   <body>
-    <section class="section">
+    <section class="section login-container">
       <div class="columns is-centered">
         <div class="column is-half">
           <div class="container">
