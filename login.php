@@ -9,6 +9,11 @@
     <link rel="stylesheet" href="css/custom.css">
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
   </head>
+
+  <?php
+    require_once "database/config.php";
+  ?>
+
   <body>
     <section class="section login-absolute">
       <div class="columns is-centered">

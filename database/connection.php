@@ -1,4 +1,5 @@
 <?php
+
 class Database
 {
   var $host = "";
@@ -9,17 +10,14 @@ class Database
   public $link;
 
   public function Database($host, $database, $user, $pass)
-  {
-      $this->host=$host;
-      $this->database=$database;
-      $this->user=$user;
-      $this->pass=$pass;
-  }
 
-  public function connect()
   {
-    $link = new PDO("sqlsrv:server = \"$this->$host\"; Database = \"$this->$database\"", $this->$user, $this->$pass);
-    $link->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    try{
+      $link = new PDO("sqlsrv:server =" . DB_SERVER . ";dbname=" . DB_NAME, DB_USERNAME, DB_PASSWORD);
+      $link->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    } catch(PDOException $e){
+      die("ERROR: Could not connect. " . $e->getMessage());
+    }
 
     return $link
   }
