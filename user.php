@@ -42,7 +42,7 @@
           </button>
         </p>
         <p class="control">
-          <button class="button is-success" type="submit" name="showusers">
+          <button class="button is-text" name="showusers">
             Show Users
           </button>
         </p>
