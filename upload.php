@@ -11,7 +11,7 @@
   <div class="container">
     <div class="level">
       <div class="level-item">
-        <form action="include/uploader.php" method="POST" enctype="multipart/form-data">
+        <form action="classes/uploader.php" method="POST" enctype="multipart/form-data">
           <div class="field">
             <input class="input" type="file" name="file">
             <div class="field is-grouped is-grouped-centered">

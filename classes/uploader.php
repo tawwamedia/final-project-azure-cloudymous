@@ -1,9 +1,6 @@
 <?php
 
-include_once '../classes/Db.class.php';
-
-$statusAllert = "";
-$targetDir = "images/";
+include 'Db.class.php';
 
 if (isset($_POST['submit'])) {
 
@@ -24,7 +21,18 @@ if (isset($_POST['submit'])) {
         $fileNameNew = uniqid('', true).".".$fileActualExt;
         $fileDestination = '/home/cloudymous/Azure/final-project-azure-cloudymous/uploads/'.$fileNameNew;
         move_uploaded_file($fileTemp, $fileDestination);
-        header ("Location: ../index.php?uploadsucess");
+
+        try {
+          $db = new Db;
+          $upload = "INSERT INTO images (name,image) VALUES(:filename,:filedest)";
+          $stmt = $db->connect()->prepare($upload);
+          $stmt->bindParam(':filename', $fileNameNew);
+          $stmt->bindParam(':filedest', $fileDestination);
+          $stmt->execute();
+          header ("Location: ../index.php?uploadsucess");
+        } catch (\Exception $e) {
+          echo "Error". $e->getMessage();
+        }
       } else {
         echo "Your file is too big!";
       }
@@ -35,11 +43,6 @@ if (isset($_POST['submit'])) {
     echo "You Can't Upload files of this type!";
   }
 
-  // $query = "INSERT INTO images (name,image) VALUES (?,?)";
-  // $stmt = $conn->prepare($query);
-
-
-
-}
+  }
 
 ?>
