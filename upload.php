@@ -24,6 +24,9 @@
       -webkit-transform: translateX(-50%) translateY(-50%);
       transform: translateX(-50%) translateY(-50%);
     }
+    .field {
+      margin-top: 5%;
+    }
   </style>
   <body>
   <div class="container">
@@ -52,11 +55,30 @@
     </div>
   </div>
   <?php
-    if ($_GET["upload"]=="success") {
-        echo '<div class="notification">
-                <button class="delete"></button>
-                Upload Success
-              </div>';
+    if ($_GET["upload"]) {
+      $statusmgs = $_GET["upload"];
+      $status = "";
+      switch ($statusmgs) {
+        case "success":
+          $status = "Upload Success";
+        break;
+        case "failtype":
+          $status = "You can't upload this type of file";
+        break;
+        case "errorfile":
+          $status = "There was an error uploading your files";
+        break;
+        case "filebig":
+          $status = "Your file is too big";
+        break;
+        default:
+          $status = "Please select the file";
+          break;
+      }
+        echo '<div class="notification">';
+        echo '<button class="delete"></button>';
+        echo $status;
+        echo  '</div>';
     }
   ?>
   </body>

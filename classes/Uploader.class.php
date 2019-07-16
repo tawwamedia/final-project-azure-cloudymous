@@ -34,13 +34,16 @@ if (isset($_POST['submit'])) {
           echo "Error". $e->getMessage();
         }
       } else {
-        echo "Your file is too big!";
+        // echo "Your file is too big!";
+        header ("Location: ../upload.php?upload=filebig");
       }
     } else {
-      echo "There was an error uploading your files";
+      // echo "There was an error uploading your files";
+      header ("Location: ../upload.php?upload=errorfile");
     }
   } else {
-    echo "You Can't Upload files of this type!";
+    // echo "You Can't Upload files of this type!";
+    header ("Location: ../upload.php?upload=failtype");
   }
 
   }
