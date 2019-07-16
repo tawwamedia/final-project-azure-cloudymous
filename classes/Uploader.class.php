@@ -29,7 +29,7 @@ if (isset($_POST['submit'])) {
           $stmt->bindParam(':filename', $fileNameNew);
           $stmt->bindParam(':filedest', $fileDestination);
           $stmt->execute();
-          header ("Location: ../upload.php?uploadsucess");
+          header ("Location: ../upload.php?upload=success");
         } catch (\Exception $e) {
           echo "Error". $e->getMessage();
         }

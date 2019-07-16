@@ -1,9 +1,4 @@
 <!DOCTYPE html>
-<?php
-
-  include 'include/autoloader.php';
-
-?>
 <html>
   <head>
     <meta charset="utf-8">
@@ -14,6 +9,14 @@
   </head>
   <style>
     .container {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -moz-transform: translateX(-50%) translateY(-50%);
+      -webkit-transform: translateX(-50%) translateY(-50%);
+      transform: translateX(-50%) translateY(-50%);
+    }
+    .notification{
       position: absolute;
       top: 50%;
       left: 50%;
@@ -40,10 +43,22 @@
         </form>
       </div>
     </div>
+    <div class="columns">
+      <div class="column">
+        <figure class="image is-128x128">
+          <img src="https://bulma.io/images/placeholders/128x128.png">
+        </figure>
+      </div>
+    </div>
   </div>
   <?php
-      $file = new Uploader;
-      $dataImage = $_FILES['file'];
+    if ($_GET["upload"]=="success") {
+        echo '<div class="notification">
+                <button class="delete"></button>
+                Upload Success
+              </div>';
+    }
   ?>
   </body>
+  <script src="node_modules/bulma/bulma.js"></script>
 </html>
