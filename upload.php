@@ -1,4 +1,9 @@
 <!DOCTYPE html>
+<?php
+
+  include 'include/autoloader.php';
+
+?>
 <html>
   <head>
     <meta charset="utf-8">
@@ -21,7 +26,7 @@
   <div class="container">
     <div class="level">
       <div class="level-item">
-        <form action="classes/uploader.php" method="POST" enctype="multipart/form-data">
+        <form action="classes/Uploader.class.php" method="POST" enctype="multipart/form-data">
           <div class="field">
             <input class="input" type="file" name="file">
             <div class="field is-grouped is-grouped-centered">
@@ -36,5 +41,9 @@
       </div>
     </div>
   </div>
+  <?php
+      $file = new Uploader;
+      $dataImage = $_FILES['file'];
+  ?>
   </body>
 </html>
