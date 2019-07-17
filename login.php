@@ -28,26 +28,41 @@
         Please Login
       </p>
 
-      <div class="field">
-        <div class="control">
-          <input class="input" type="text" placeholder="Username">
+      <form action="login.php" method="POST" enctype="multipart/form-data">
+        <div class="field">
+          <div class="control">
+            <input class="input" type="text" name="username" placeholder="Username">
+          </div>
         </div>
-      </div>
-      <div class="field">
-        <div class="control">
-          <input class="input" type="password" placeholder="Password">
+        <div class="field">
+          <div class="control">
+            <input class="input" type="password" name="password" placeholder="Password">
+          </div>
         </div>
-      </div>
-      <div class="field is-grouped is-grouped-centered">
-        <p class="control">
-          <button class="button is-success">
-            Login
-          </button>
-        </p>
-      </div>
+        <div class="field is-grouped is-grouped-centered">
+          <p class="control">
+            <button class="button is-success" type="submit" name="submit">
+              Login
+            </button>
+          </p>
+        </div>
+      </form>
+
+      <?php
+      if (isset($_POST['submit'])) {
+        $username = $_POST["username"];
+        $password = $_POST["password"];
+
+        echo '<div class="notification">';
+        echo '<button class="delete"></button>';
+        echo "Username is ".$username. " and password is ".$password;
+        echo  '</div>';
+      }
+      ?>
 
 
     </div>
   </section>
+  <script src="node_modules/bulma/bulma.js"></script>
   </body>
 </html>
