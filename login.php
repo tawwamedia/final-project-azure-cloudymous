@@ -28,7 +28,7 @@
         Please Login
       </p>
 
-      <form action="login.php" method="POST" enctype="multipart/form-data">
+      <form name="loginForm" action="login.php" method="POST" enctype="multipart/form-data" onsubmit="return validateLoginForm()">
         <div class="field">
           <div class="control">
             <input class="input" type="text" name="username" placeholder="Username">
