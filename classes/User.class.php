@@ -23,8 +23,8 @@ class User extends Db {
 
       $stmt->bindParam(':username', $username, PDO::PARAM_STR);
       $stmt->bindParam(':password', $password, PDO::PARAM_STR);
-
       $stmt->execute();
+      header ("Location: ../adduser.php?status=success");
     } catch (\Exception $e) {
       echo "Error". $e->getMessage();
     }

@@ -31,7 +31,7 @@
         Add User
       </h1>
 
-      <form action="login.php" method="POST" enctype="multipart/form-data">
+      <form action="adduser.php" method="POST" enctype="multipart/form-data">
         <div class="field">
           <div class="control">
             <input class="input" type="text" name="username" placeholder="Username">
@@ -50,28 +50,14 @@
           </p>
         </div>
       </form>
-
-      <h1 class="title has-text-centered">
-        User Registered
-      </h1>
-      <p class="subtitle has-text-centered">
-        This is allowed users to access the website
-      </p>
-
-      <table class="table">
-        <thead>
-          <tr>
-            <th><abbr title="ID">ID</abbr></th>
-            <th>Username</th>
-            <th>Date Created</th>
-          </tr>
-          <?php
-            $pengguna = new User;
-            echo $pengguna->getAllUsers();
-          ?>
-        </thead>
-      </table>
-
+      <?php
+        if (isset($_POST['submit'])) {
+          $pengguna = new User;
+          $username = $_POST["username"];
+          $password = $_POST["password"];
+          $pengguna->addNewUser($username,$password);
+          }
+        ?>
     </div>
   </section>
   </body>
