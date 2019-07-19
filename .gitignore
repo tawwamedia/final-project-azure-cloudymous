@@ -20,3 +20,4 @@
 /fuel/app/cache/*/*
 /fuel/app/config/crypt.php
 /uploads
+/package-lock.json
