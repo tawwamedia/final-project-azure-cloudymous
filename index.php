@@ -28,13 +28,13 @@
       </p>
       <div class="columns">
         <div class="column">
-          <a class="button is-rounded is-large is-fullwidth">Add User to Database</a>
+          <a href="adduser.php" class="button is-rounded is-large is-fullwidth">Add User to Database</a>
         </div>
         <div class="column">
-          <a class="button is-rounded is-large is-fullwidth"> Upload Image to Server</a>
+          <a href="upload.php" class="button is-rounded is-large is-fullwidth"> Upload Image to Server</a>
         </div>
         <div class="column">
-          <a class="button is-rounded is-large is-fullwidth">Show Users</a>
+          <a href="users.php" class="button is-rounded is-large is-fullwidth">Show Users</a>
         </div>
         <div class="column">
           <a class="button is-rounded is-large is-fullwidth">Show Image Storage in Database</a>
