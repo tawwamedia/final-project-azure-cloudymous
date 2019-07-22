@@ -27,31 +27,6 @@
   <section class="section">
   <?php include('navbar.php'); ?>
     <div class="container">
-
-      <h1 class="title has-text-centered">
-        Add User
-      </h1>
-
-      <form action="login.php" method="POST" enctype="multipart/form-data">
-        <div class="field">
-          <div class="control">
-            <input class="input" type="text" name="username" placeholder="Username">
-          </div>
-        </div>
-        <div class="field">
-          <div class="control">
-            <input class="input" type="password" name="password" placeholder="Password">
-          </div>
-        </div>
-        <div class="field is-grouped is-grouped-centered">
-          <p class="control">
-            <button class="button is-success" type="submit" name="submit">
-              Add User
-            </button>
-          </p>
-        </div>
-      </form>
-
       <h1 class="title has-text-centered">
         User Registered
       </h1>
