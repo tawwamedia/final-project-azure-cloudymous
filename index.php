@@ -15,12 +15,21 @@
       </h1>
       <p class="subtitle has-text-centered">
         Home Page using Bulma
-        <?php
-        $filename = "Uung.jpg";
-        $fileExt = explode(".", $filename);
-        print_r(end($fileExt));
-        ?>
       </p>
+      <div class="columns">
+        <div class="column">
+          First column
+        </div>
+        <div class="column">
+          Second column
+        </div>
+        <div class="column">
+          Third column
+        </div>
+        <div class="column">
+          Fourth column
+        </div>
+      </div>
     </div>
   </section>
   </body>
