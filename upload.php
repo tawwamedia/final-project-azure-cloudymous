@@ -29,8 +29,8 @@
     }
   </style>
   <body>
-  <section class="section">
   <?php include('navbar.php'); ?>
+  <section class="section">
     <div class="container">
       <div class="level">
         <div class="level-item">
