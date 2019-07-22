@@ -25,6 +25,7 @@
   </style>
   <body>
   <section class="section">
+  <?php include('navbar.php'); ?>
     <div class="container">
 
       <h1 class="title has-text-centered">

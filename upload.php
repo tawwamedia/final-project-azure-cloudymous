@@ -29,6 +29,7 @@
     }
   </style>
   <body>
+  <?php include('navbar.php'); ?>
   <div class="container">
     <div class="level">
       <div class="level-item">
