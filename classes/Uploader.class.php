@@ -12,13 +12,14 @@ if (isset($_POST['submit'])) {
   $fileSize = $_FILES['file']['size'];
 
   $fileExt = explode(".", $fileName);
+  $fileName = strtolower(reset($fileExt));
   $fileActualExt = strtolower(end($fileExt));
   $allowed = array('jpg','jpeg','png');
 
   if (in_array($fileActualExt, $allowed)){
     if ($fileError === 0) {
       if ($fileSize < 2000000){
-        $fileNameNew = uniqid('', true).".".$fileActualExt;
+        $fileNameNew = $fileName.".".$fileActualExt;
         $fileDestination = '/home/cloudymous/Azure/final-project-azure-cloudymous/uploads/'.$fileNameNew;
         move_uploaded_file($fileTemp, $fileDestination);
 
