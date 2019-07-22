@@ -35,6 +35,21 @@
         <form action="classes/Uploader.class.php" method="POST" enctype="multipart/form-data">
           <div class="field">
             <input class="input" type="file" name="file">
+            <div class="file has-name is-right">
+              <label class="file-label">
+                <input class="file-input" type="file" name="resume">
+                <span class="file-cta">
+                  <span class="file-icon">
+                    <i class="fas fa-upload"></i>
+                  </span>
+                  <span class="file-label">
+                    Choose a file…
+                  </span>
+                </span>
+                <span class="file-name">
+                </span>
+              </label>
+            </div>
             <div class="field is-grouped is-grouped-centered">
               <p class="control">
                 <button class="button is-primary" type="submit" name="submit">
