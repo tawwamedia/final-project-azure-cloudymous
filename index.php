@@ -28,20 +28,16 @@
       </p>
       <div class="columns">
         <div class="column">
-          Add User to Database
-          <a class="button is-rounded is-large is-fullwidth">Large</a>
+          <a class="button is-rounded is-large is-fullwidth">Add User to Database</a>
         </div>
         <div class="column">
-          Upload Image to Server
-          <a class="button is-rounded is-large is-fullwidth">Large</a>
+          <a class="button is-rounded is-large is-fullwidth"> Upload Image to Server</a>
         </div>
         <div class="column">
-          Show Users
-          <a class="button is-rounded is-large is-fullwidth">Large</a>
+          <a class="button is-rounded is-large is-fullwidth">Show Users</a>
         </div>
         <div class="column">
-          Show Image Storage in Database
-          <a class="button is-rounded is-large is-fullwidth">Large</a>
+          <a class="button is-rounded is-large is-fullwidth">Show Image Storage in Database</a>
         </div>
       </div>
     </div>
