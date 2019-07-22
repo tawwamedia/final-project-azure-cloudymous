@@ -37,8 +37,14 @@
           <a class="navbar-item">
             Home
           </a>
-          <a class="navbar-item">
-            Documentation
+          <a href="adduser.php" class="navbar-item">
+            Add User
+          </a>
+          <a href="users.php" class="navbar-item">
+            Show Users
+          </a>
+          <a href="upload.php" class="navbar-item">
+            Upload Image
           </a>
         </div>
 
