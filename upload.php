@@ -34,10 +34,9 @@
       <div class="level-item">
         <form action="classes/Uploader.class.php" method="POST" enctype="multipart/form-data">
           <div class="field">
-            <input class="input" type="file" name="file">
             <div class="file has-name is-right">
               <label class="file-label">
-                <input class="file-input" type="file" name="resume">
+                <input class="file-input" type="file" name="file">
                 <span class="file-cta">
                   <span class="file-icon">
                     <i class="fas fa-upload"></i>
@@ -47,6 +46,7 @@
                   </span>
                 </span>
                 <span class="file-name">
+                    No file chosen
                 </span>
               </label>
             </div>
