@@ -29,47 +29,49 @@
     }
   </style>
   <body>
+  <section class="section">
   <?php include('navbar.php'); ?>
-  <div class="container">
-    <div class="level">
-      <div class="level-item">
-        <form action="classes/Uploader.class.php" method="POST" enctype="multipart/form-data">
-          <div class="field">
-            <div class="file has-name is-right">
-              <label class="file-label">
-                <input class="file-input" type="file" name="file" id="file">
-                <span class="file-cta">
-                  <span class="file-icon">
-                    <i class="fas fa-upload"></i>
+    <div class="container">
+      <div class="level">
+        <div class="level-item">
+          <form action="classes/Uploader.class.php" method="POST" enctype="multipart/form-data">
+            <div class="field">
+              <div class="file has-name is-right">
+                <label class="file-label">
+                  <input class="file-input" type="file" name="file" id="file">
+                  <span class="file-cta">
+                    <span class="file-icon">
+                      <i class="fas fa-upload"></i>
+                    </span>
+                    <span class="file-label">
+                      Choose a file…
+                    </span>
                   </span>
-                  <span class="file-label">
-                    Choose a file…
+                  <span class="file-name" id="filename">
+                      No file chosen
                   </span>
-                </span>
-                <span class="file-name" id="filename">
-                    No file chosen
-                </span>
-              </label>
+                </label>
+              </div>
+              <div class="field is-grouped is-grouped-centered">
+                <p class="control">
+                  <button class="button is-primary" type="submit" name="submit">
+                    Submit
+                  </button>
+                </p>
+              </div>
             </div>
-            <div class="field is-grouped is-grouped-centered">
-              <p class="control">
-                <button class="button is-primary" type="submit" name="submit">
-                  Submit
-                </button>
-              </p>
-            </div>
-          </div>
-        </form>
+          </form>
+        </div>
+      </div>
+      <div class="columns">
+        <div class="column">
+          <figure class="image is-128x128">
+            <img src="https://bulma.io/images/placeholders/128x128.png">
+          </figure>
+        </div>
       </div>
     </div>
-    <div class="columns">
-      <div class="column">
-        <figure class="image is-128x128">
-          <img src="https://bulma.io/images/placeholders/128x128.png">
-        </figure>
-      </div>
-    </div>
-  </div>
+  </section>
   <?php
     if ($_GET["upload"]) {
       $statusmgs = $_GET["upload"];
