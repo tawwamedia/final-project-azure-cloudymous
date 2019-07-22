@@ -36,7 +36,7 @@
           <div class="field">
             <div class="file has-name is-right">
               <label class="file-label">
-                <input class="file-input" type="file" name="file">
+                <input class="file-input" type="file" name="file" id="file">
                 <span class="file-cta">
                   <span class="file-icon">
                     <i class="fas fa-upload"></i>
@@ -45,7 +45,7 @@
                     Choose a file…
                   </span>
                 </span>
-                <span class="file-name">
+                <span class="file-name" id="filename">
                     No file chosen
                 </span>
               </label>
@@ -98,4 +98,5 @@
   ?>
   </body>
   <script src="node_modules/bulma/bulma.js"></script>
+  <script src="js/script.js"></script>
 </html>
