@@ -7,6 +7,16 @@
     <link rel="stylesheet" href="node_modules/bulma/css/bulma.min.css">
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
   </head>
+  <style>
+    .container {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -moz-transform: translateX(-50%) translateY(-50%);
+      -webkit-transform: translateX(-50%) translateY(-50%);
+      transform: translateX(-50%) translateY(-50%);
+    }
+  </style>
   <body>
   <section class="section">
     <div class="container">
@@ -18,16 +28,20 @@
       </p>
       <div class="columns">
         <div class="column">
-          First column
+          Add User to Database
+          <a class="button is-rounded is-large is-fullwidth">Large</a>
         </div>
         <div class="column">
-          Second column
+          Upload Image to Server
+          <a class="button is-rounded is-large is-fullwidth">Large</a>
         </div>
         <div class="column">
-          Third column
+          Show Users
+          <a class="button is-rounded is-large is-fullwidth">Large</a>
         </div>
         <div class="column">
-          Fourth column
+          Show Image Storage in Database
+          <a class="button is-rounded is-large is-fullwidth">Large</a>
         </div>
       </div>
     </div>
