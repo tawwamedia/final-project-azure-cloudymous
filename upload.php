@@ -34,7 +34,7 @@
     <div class="container">
       <div class="level">
         <div class="level-item">
-          <form action="classes/UploaderBlob.class.php" method="POST" enctype="multipart/form-data">
+          <form action="classes/Uploader.class.php" method="POST" enctype="multipart/form-data">
             <div class="field">
               <div class="file has-name is-right">
                 <label class="file-label">
