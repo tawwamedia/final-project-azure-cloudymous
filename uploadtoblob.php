@@ -1,111 +1,105 @@
-<?php
-
-require_once 'vendor/autoload.php';
-require_once "./random_string.php";
-
-use MicrosoftAzure\Storage\Blob\BlobRestProxy;
-use MicrosoftAzure\Storage\Common\Exceptions\ServiceException;
-use MicrosoftAzure\Storage\Blob\Models\ListBlobsOptions;
-use MicrosoftAzure\Storage\Blob\Models\CreateContainerOptions;
-use MicrosoftAzure\Storage\Blob\Models\PublicAccessType;
-
-$connectionString = "DefaultEndpointsProtocol=https;AccountName=".getenv('ACCOUNT_NAME').";AccountKey=".getenv('ACCOUNT_KEY');
-
-// Create blob client.
-$blobClient = BlobRestProxy::createBlobService($connectionString);
-
-$fileToUpload = "HelloWorld.txt";
-
-if (!isset($_GET["Cleanup"])) {
-    $createContainerOptions = new CreateContainerOptions();
-    $createContainerOptions->setPublicAccess(PublicAccessType::CONTAINER_AND_BLOBS);
-
-    // Set container metadata.
-    $createContainerOptions->addMetaData("key1", "value1");
-    $createContainerOptions->addMetaData("key2", "value2");
-
-      $containerName = "images";
-
-    try {
-        // Create container.
-        $blobClient->createContainer($containerName, $createContainerOptions);
-
-        // Getting local file so that we can upload it to Azure
-        $myfile = fopen($fileToUpload, "w") or die("Unable to open file!");
-        fclose($myfile);
-        
-        # Upload file as a block blob
-        echo "Uploading BlockBlob: ".PHP_EOL;
-        echo $fileToUpload;
-        echo "<br />";
-        
-        $content = fopen($fileToUpload, "r");
-
-        //Upload blob
-        $blobClient->createBlockBlob($containerName, $fileToUpload, $content);
-
-        // List blobs.
-        $listBlobsOptions = new ListBlobsOptions();
-        $listBlobsOptions->setPrefix("HelloWorld");
-
-        echo "These are the blobs present in the container: ";
-
-        do{
-            $result = $blobClient->listBlobs($containerName, $listBlobsOptions);
-            foreach ($result->getBlobs() as $blob)
-            {
-                echo $blob->getName().": ".$blob->getUrl()."<br />";
-            }
-        
-            $listBlobsOptions->setContinuationToken($result->getContinuationToken());
-        } while($result->getContinuationToken());
-        echo "<br />";
-
-        // Get blob.
-        echo "This is the content of the blob uploaded: ";
-        $blob = $blobClient->getBlob($containerName, $fileToUpload);
-        fpassthru($blob->getContentStream());
-        echo "<br />";
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Upload File</title>
+    <link rel="stylesheet" href="node_modules/bulma/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+  </head>
+  <style>
+    .container {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -moz-transform: translateX(-50%) translateY(-50%);
+      -webkit-transform: translateX(-50%) translateY(-50%);
+      transform: translateX(-50%) translateY(-50%);
     }
-    catch(ServiceException $e){
-        // Handle exception based on error codes and messages.
-        // Error codes and messages are here:
-        // http://msdn.microsoft.com/library/azure/dd179439.aspx
-        $code = $e->getCode();
-        $error_message = $e->getMessage();
-        echo $code.": ".$error_message."<br />";
+    .notification{
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -moz-transform: translateX(-50%) translateY(-50%);
+      -webkit-transform: translateX(-50%) translateY(-50%);
+      transform: translateX(-50%) translateY(-50%);
     }
-    catch(InvalidArgumentTypeException $e){
-        // Handle exception based on error codes and messages.
-        // Error codes and messages are here:
-        // http://msdn.microsoft.com/library/azure/dd179439.aspx
-        $code = $e->getCode();
-        $error_message = $e->getMessage();
-        echo $code.": ".$error_message."<br />";
+    .field {
+      margin-top: 5%;
     }
-} 
-else 
-{
-
-    try{
-        // Delete container.
-        echo "Deleting Container".PHP_EOL;
-        echo $_GET["containerName"].PHP_EOL;
-        echo "<br />";
-        $blobClient->deleteContainer($_GET["containerName"]);
+  </style>
+  <body>
+  <?php include('navbar.php'); ?>
+  <section class="section">
+    <div class="container">
+      <div class="level">
+        <div class="level-item">
+          <form action="classes/UploaderBlob.class.php" method="POST" enctype="multipart/form-data">
+            <div class="field">
+              <div class="file has-name is-right">
+                <label class="file-label">
+                  <input class="file-input" type="file" name="file" id="file">
+                  <span class="file-cta">
+                    <span class="file-icon">
+                      <i class="fas fa-upload"></i>
+                    </span>
+                    <span class="file-label">
+                      Choose a file…
+                    </span>
+                  </span>
+                  <span class="file-name" id="filename">
+                      No file chosen
+                  </span>
+                </label>
+              </div>
+              <div class="field is-grouped is-grouped-centered">
+                <p class="control">
+                  <button class="button is-primary" type="submit" name="submit">
+                    Submit
+                  </button>
+                </p>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="columns">
+        <div class="column">
+          <figure class="image is-128x128">
+            <img src="https://bulma.io/images/placeholders/128x128.png">
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+  <?php
+    if ($_GET["upload"]) {
+      $statusmgs = $_GET["upload"];
+      $status = "";
+      switch ($statusmgs) {
+        case "success":
+          $status = "Upload Success";
+        break;
+        case "failtype":
+          $status = "You can't upload this type of file";
+        break;
+        case "errorfile":
+          $status = "There was an error uploading your files";
+        break;
+        case "filebig":
+          $status = "Your file is too big";
+        break;
+        default:
+          $status = "Please select the file";
+          break;
+      }
+        echo '<div class="notification">';
+        echo '<button class="delete"></button>';
+        echo $status;
+        echo  '</div>';
     }
-    catch(ServiceException $e){
-        // Handle exception based on error codes and messages.
-        // Error codes and messages are here:
-        // http://msdn.microsoft.com/library/azure/dd179439.aspx
-        $code = $e->getCode();
-        $error_message = $e->getMessage();
-        echo $code.": ".$error_message."<br />";
-    }
-}
-?>
-
-
-<form method="post" action="phpQS.php?Cleanup&containerName=<?php echo $containerName; ?>">
-    <button type="submit">Press to clean up all resources created by this sample</button>
-</form>
+  ?>
+  </body>
+  <script src="node_modules/bulma/bulma.js"></script>
+  <script src="js/script.js"></script>
+</html>
