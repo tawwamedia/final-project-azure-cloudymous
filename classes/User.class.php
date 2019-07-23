@@ -17,12 +17,14 @@ class User extends Db {
   }
 
   public function addNewUser($username,$password){
+    $user = strtolower(stripslashes($username));
+    $pass = password_hash($password, PASSWORD_DEFAULT);
     try {
       $sql = "INSERT INTO pengguna (username, password) VALUES (:username,:password)";
       $stmt = $this->connect()->prepare($sql);
 
-      $stmt->bindParam(':username', $username, PDO::PARAM_STR);
-      $stmt->bindParam(':password', $password, PDO::PARAM_STR);
+      $stmt->bindParam(':username', $user, PDO::PARAM_STR);
+      $stmt->bindParam(':password', $pass, PDO::PARAM_STR);
       $stmt->execute();
       header ("Location: ../adduser.php?status=success");
     } catch (\Exception $e) {

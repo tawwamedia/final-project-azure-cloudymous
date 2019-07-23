@@ -1,3 +1,9 @@
+<?php
+
+  include 'include/autoloader.php';
+
+?>
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -28,7 +34,7 @@
         Please Login
       </p>
 
-      <form name="loginForm" action="login.php" method="POST" enctype="multipart/form-data" onsubmit="return validateLoginForm()">
+      <form name="loginForm" action="classes/Login.class.php" method="POST" enctype="multipart/form-data" onsubmit="return validateLoginForm()">
         <div class="field">
           <div class="control">
             <input class="input" type="text" name="username" placeholder="Username">

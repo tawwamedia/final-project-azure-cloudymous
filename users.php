@@ -1,9 +1,3 @@
-<!DOCTYPE html>
-<?php
-
-  include 'include/autoloader.php';
-
-?>
 <html>
   <head>
     <meta charset="utf-8">
