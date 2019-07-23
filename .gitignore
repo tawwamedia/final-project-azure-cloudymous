@@ -22,3 +22,5 @@
 /uploads
 /package-lock.json
 /vendor
+/node_modules
+/sass
